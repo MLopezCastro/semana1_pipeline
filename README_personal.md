@@ -148,6 +148,8 @@ pip list
 (Te muestra todos los paquetes instalados y sus versiones)
 
 ---
+---
+
 
 ## 2.5 Estructura inicial del proyecto
 
