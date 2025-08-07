@@ -152,7 +152,7 @@ markdown
 
 ## 2.5 Estructura inicial del proyecto
 
-```text
+```
 semana_1_pipeline/
 ├── data/
 │   ├── input.csv
