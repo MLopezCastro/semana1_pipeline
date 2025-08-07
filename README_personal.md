@@ -149,13 +149,23 @@ pip list
 
 ---
 
-
-```
 ## 2.5 Estructura inicial del proyecto
 
-<img width="334" height="321" alt="image" src="https://github.com/user-attachments/assets/041e2627-c227-4c07-85b8-9b886d4be840" />
-
-
+```text
+semana_1_pipeline/
+├── data/
+│   ├── input.csv             # Archivo de entrada
+│   └── output/               # Carpeta de salida
+├── pipeline/                 # Lógica modularizada
+│   ├── __init__.py
+│   ├── load.py
+│   ├── transform.py
+│   ├── save.py
+├── utils/
+│   └── logger.py             # Logging centralizado
+├── main.py                   # Punto de entrada del pipeline
+├── requirements.txt
+└── README.md
 ```
 
 ---
@@ -173,48 +183,44 @@ pip list
 
 ### 🧪 Tips adicionales
 
-- Agregá un `.gitignore` con:
+Agregá un `.gitignore` con:
 
+```gitignore
+venv/
+__pycache__/
+data/output/
+*.pyc
 ```
 
-venv/
-**pycache**/
-data/output/
-\*.pyc
-
-````
-
-- Iniciá Git:
+Inicializá Git:
 
 ```bash
 git init
 git add .
 git commit -m "Initial project structure and setup"
-````
+```
 
 ---
 
 ## 2.6 Buenas prácticas desde el arranque
 
-| Práctica                       | Qué evita                                             |
-| ------------------------------ | ----------------------------------------------------- |
-| Usar entorno virtual           | Conflictos de versiones y problemas en producción     |
-| Dividir código en carpetas     | Mezcla de responsabilidades y código desordenado      |
-| Versionar con Git              | Pérdida de historial y debugging difícil              |
-| README claro                   | Proyecto difícil de entender si alguien más lo retoma |
-| `requirements.txt` actualizado | Imposible de replicar el entorno exacto del proyecto  |
+| Práctica                        | Qué evita                                                  |
+| ------------------------------ | ---------------------------------------------------------- |
+| Usar entorno virtual           | Conflictos de versiones y problemas en producción          |
+| Dividir código en carpetas     | Mezcla de responsabilidades y código desordenado           |
+| Versionar con Git              | Pérdida de historial y debugging difícil                   |
+| README claro                   | Proyecto difícil de entender si alguien más lo retoma      |
+| `requirements.txt` actualizado | Imposible de replicar el entorno exacto del proyecto       |
 
 ---
 
 ## 🎯 Resultado esperado de esta sección
 
-Al final de esta sección, debés tener:
-
-* [ ] &#x20;Entorno virtual funcional
-* [ ] &#x20;Carpeta `pipeline/` lista para recibir funciones
-* [ ] &#x20;Archivos de entrada y salida ubicados
-* [ ] &#x20;Estructura ordenada para crecer a lo largo de las semanas
-* [ ] &#x20;Primer commit hecho con Git
+- [ ] Entorno virtual funcional  
+- [ ] Carpeta `pipeline/` lista para recibir funciones  
+- [ ] Archivos de entrada y salida ubicados  
+- [ ] Estructura ordenada para crecer a lo largo de las semanas  
+- [ ] Primer commit hecho con Git  
 
 ---
 
@@ -229,15 +235,10 @@ ls pipeline/
 
 ## ✅ Checklist
 
-* [ ] &#x20;Entorno virtual creado y activado
-* [ ] &#x20;`pandas` instalado
-* [ ] &#x20;Carpeta `pipeline/` con módulos vacíos
-* [ ] &#x20;`requirements.txt` generado
-* [ ] &#x20;Proyecto inicial commiteado en Git
-
-```
-
-
-
+- [ ] Entorno virtual creado y activado  
+- [ ] pandas instalado  
+- [ ] Carpeta `pipeline/` con módulos vacíos  
+- [ ] requirements.txt generado  
+- [ ] Proyecto inicial commiteado en Git
 
 
