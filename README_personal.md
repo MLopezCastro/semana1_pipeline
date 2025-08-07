@@ -9,7 +9,12 @@ Este archivo resume todo lo que hice hasta ahora, para repasar fácilmente los c
 ```bash
 mkdir semana1_pipeline
 cd semana1_pipeline
+<<<<<<< HEAD
 ```
+=======
+
+````
+>>>>>>> 551900f6fefe9d75dfe6b13fd2cc283221d64350
 
 ---
 
