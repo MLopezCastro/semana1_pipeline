@@ -152,33 +152,32 @@ pip list
 ## 2.5 Estructura inicial del proyecto
 
 ```text
-
 semana_1_pipeline/
 ├── data/
-│   ├── input.csv             # Archivo de entrada
-│   └── output/               # Carpeta de salida
-├── pipeline/                 # Lógica modularizada
+│   ├── input.csv
+│   └── output/
+├── pipeline/
 │   ├── __init__.py
 │   ├── load.py
 │   ├── transform.py
-│   ├── save.py
+│   └── save.py
 ├── utils/
-│   └── logger.py             # Logging centralizado
-├── main.py                   # Punto de entrada del pipeline
+│   └── logger.py
+├── main.py
 ├── requirements.txt
 └── README.md
 ```
 
 ---
 
-### 📁 ¿Por qué esta estructura?
+### 📁 ¿Qué representa cada carpeta y archivo?
 
-- `pipeline/`: Contiene todas las funciones que componen el flujo ETL. Cada módulo hace una sola cosa.
-- `utils/`: Para utilidades comunes, como logging, que serán usadas desde varios módulos.
-- `data/`: Carpeta con insumos (`input.csv`) y outputs (`output/`).
-- `main.py`: Punto de ejecución principal, donde se conectan todos los pasos.
-- `requirements.txt`: Permite replicar el entorno fácilmente en cualquier máquina o deploy.
-- `README.md`: Documentación del proyecto y cómo usarlo.
+- `data/`: contiene archivos de entrada (`input.csv`) y la carpeta `output/` para resultados.
+- `pipeline/`: módulos con la lógica del ETL (`load.py`, `transform.py`, `save.py`).
+- `utils/`: utilidades reutilizables como `logger.py`.
+- `main.py`: punto de entrada del pipeline.
+- `requirements.txt`: lista de dependencias del entorno.
+- `README.md`: documentación del proyecto.
 
 ---
 
@@ -241,5 +240,4 @@ ls pipeline/
 - [ ] Carpeta `pipeline/` con módulos vacíos  
 - [ ] requirements.txt generado  
 - [ ] Proyecto inicial commiteado en Git
-
 
