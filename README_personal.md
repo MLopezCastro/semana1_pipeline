@@ -146,3 +146,115 @@ Verificá qué hay instalado:
 pip list
 
 (Te muestra todos los paquetes instalados y sus versiones)
+
+---
+
+Perfecto, Marcelo. Acá tenés **TODO el bloque bien formateado**, listo para copiar y pegar en tu `README_personal.md` sin que se rompa:
+
+---
+
+```markdown
+## 2.5 Estructura inicial del proyecto
+
+```
+
+semana\_1\_pipeline/
+├── data/
+│   ├── input.csv             # Archivo de entrada
+│   └── output/               # Carpeta de salida
+├── pipeline/                 # Lógica modularizada
+│   ├── **init**.py
+│   ├── load.py
+│   ├── transform.py
+│   ├── save.py
+├── utils/
+│   └── logger.py             # Logging centralizado
+├── main.py                   # Punto de entrada del pipeline
+├── requirements.txt
+└── README.md
+
+```
+
+---
+
+### 📁 ¿Por qué esta estructura?
+
+- `pipeline/`: Contiene todas las funciones que componen el flujo ETL. Cada módulo hace una sola cosa.
+- `utils/`: Para utilidades comunes, como logging, que serán usadas desde varios módulos.
+- `data/`: Carpeta con insumos (`input.csv`) y outputs (`output/`).
+- `main.py`: Punto de ejecución principal, donde se conectan todos los pasos.
+- `requirements.txt`: Permite replicar el entorno fácilmente en cualquier máquina o deploy.
+- `README.md`: Documentación del proyecto y cómo usarlo.
+
+---
+
+### 🧪 Tips adicionales
+
+- Agregá un `.gitignore` con:
+
+```
+
+venv/
+**pycache**/
+data/output/
+\*.pyc
+
+````
+
+- Iniciá Git:
+
+```bash
+git init
+git add .
+git commit -m "Initial project structure and setup"
+````
+
+---
+
+## 2.6 Buenas prácticas desde el arranque
+
+| Práctica                       | Qué evita                                             |
+| ------------------------------ | ----------------------------------------------------- |
+| Usar entorno virtual           | Conflictos de versiones y problemas en producción     |
+| Dividir código en carpetas     | Mezcla de responsabilidades y código desordenado      |
+| Versionar con Git              | Pérdida de historial y debugging difícil              |
+| README claro                   | Proyecto difícil de entender si alguien más lo retoma |
+| `requirements.txt` actualizado | Imposible de replicar el entorno exacto del proyecto  |
+
+---
+
+## 🎯 Resultado esperado de esta sección
+
+Al final de esta sección, debés tener:
+
+* [ ] &#x20;Entorno virtual funcional
+* [ ] &#x20;Carpeta `pipeline/` lista para recibir funciones
+* [ ] &#x20;Archivos de entrada y salida ubicados
+* [ ] &#x20;Estructura ordenada para crecer a lo largo de las semanas
+* [ ] &#x20;Primer commit hecho con Git
+
+---
+
+### 🧪 ¿Cómo verificar?
+
+```bash
+python -c "import pandas as pd; print(pd.__version__)"
+ls pipeline/
+```
+
+---
+
+## ✅ Checklist
+
+* [ ] &#x20;Entorno virtual creado y activado
+* [ ] &#x20;`pandas` instalado
+* [ ] &#x20;Carpeta `pipeline/` con módulos vacíos
+* [ ] &#x20;`requirements.txt` generado
+* [ ] &#x20;Proyecto inicial commiteado en Git
+
+```
+
+---
+
+
+
