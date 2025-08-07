@@ -153,7 +153,7 @@ pip list
 ```
 ## 2.5 Estructura inicial del proyecto
 
-```
+```markdown
 
 <img width="334" height="321" alt="image" src="https://github.com/user-attachments/assets/041e2627-c227-4c07-85b8-9b886d4be840" />
 
