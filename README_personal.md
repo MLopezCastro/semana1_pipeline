@@ -150,7 +150,7 @@ pip list
 ---
 
 
-```markdown
+```
 ## 2.5 Estructura inicial del proyecto
 
 ```
