@@ -149,9 +149,6 @@ pip list
 
 ---
 
-Perfecto, Marcelo. Acá tenés **TODO el bloque bien formateado**, listo para copiar y pegar en tu `README_personal.md` sin que se rompa:
-
----
 
 ```markdown
 ## 2.5 Estructura inicial del proyecto
