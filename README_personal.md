@@ -117,3 +117,32 @@ git push -u origin main
 - No se debe subir `venv` a GitHub. Siempre usar `.gitignore`.
 - El entorno virtual se activa cada vez que abrís VS Code en esta carpeta.
 - Si `flake8` marca errores, corregir antes de commitear (opcional pero recomendado).
+
+---
+
+---
+
+## 🧠 Cómo mantener `requirements.txt` actualizado
+
+Para no olvidar nunca qué paquetes necesita tu proyecto, seguí estas buenas prácticas:
+
+### 1. Trabajá siempre en un entorno virtual
+
+De esa forma, `pip freeze` solo listará las dependencias de este proyecto, sin mezclar con otros.
+
+### 2. Cada vez que instales algo nuevo, actualizá `requirements.txt`
+
+```bash
+pip install nombre_paquete
+pip freeze > requirements.txt
+
+Ejemplo:
+
+pip install pandas
+pip freeze > requirements.txt
+
+Verificá qué hay instalado:
+
+pip list
+
+(Te muestra todos los paquetes instalados y sus versiones)
