@@ -1,6 +1,3 @@
-### 📘 Contenido de `README_personal.md`
-
-````markdown
 # 📒 Apuntes Personales – Semana 1: Setup del Proyecto
 
 Este archivo resume todo lo que hice hasta ahora, para repasar fácilmente los comandos y conceptos básicos del entorno virtual y herramientas de calidad de código.
@@ -12,7 +9,7 @@ Este archivo resume todo lo que hice hasta ahora, para repasar fácilmente los c
 ```bash
 mkdir semana1_pipeline
 cd semana1_pipeline
-````
+```
 
 ---
 
@@ -54,11 +51,11 @@ pip install black flake8 isort
 
 ### ¿Qué hace cada herramienta?
 
-| Herramienta | Función                                                                  |
-| ----------- | ------------------------------------------------------------------------ |
-| `black`     | Formatea automáticamente el código (espacios, sangrías, saltos de línea) |
-| `flake8`    | Marca errores de estilo y posibles bugs                                  |
-| `isort`     | Ordena los `import` de forma correcta                                    |
+| Herramienta | Función |
+|------------|---------|
+| `black`    | Formatea automáticamente el código (espacios, sangrías, saltos de línea) |
+| `flake8`   | Marca errores de estilo y posibles bugs |
+| `isort`    | Ordena los `import` de forma correcta |
 
 ### Ejecutar sobre un archivo
 
@@ -100,7 +97,7 @@ __pycache__/
 
 ### Crear repo desde GitHub (vacío)
 
-Ejemplo: [https://github.com/MLopezCastro/semana1\_pipeline](https://github.com/MLopezCastro/semana1_pipeline)
+Ejemplo: https://github.com/MLopezCastro/semana1_pipeline
 
 ### Conectar repo local con Git
 
@@ -117,13 +114,6 @@ git push -u origin main
 
 ## 💡 Notas adicionales
 
-* No se debe subir `venv` a GitHub. Siempre usar `.gitignore`.
-* El entorno virtual se activa cada vez que abrís VS Code en esta carpeta.
-* Si `flake8` marca errores, corregir antes de commitear (opcional pero recomendado).
-
-```
-
----
-
-¿Querés que lo guarde como archivo `.md` y te lo genere para descargar?
-```
+- No se debe subir `venv` a GitHub. Siempre usar `.gitignore`.
+- El entorno virtual se activa cada vez que abrís VS Code en esta carpeta.
+- Si `flake8` marca errores, corregir antes de commitear (opcional pero recomendado).
