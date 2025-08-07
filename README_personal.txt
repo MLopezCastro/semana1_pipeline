@@ -1,0 +1,129 @@
+### 📘 Contenido de `README_personal.md`
+
+````markdown
+# 📒 Apuntes Personales – Semana 1: Setup del Proyecto
+
+Este archivo resume todo lo que hice hasta ahora, para repasar fácilmente los comandos y conceptos básicos del entorno virtual y herramientas de calidad de código.
+
+---
+
+## 🧱 1. Crear carpeta del proyecto
+
+```bash
+mkdir semana1_pipeline
+cd semana1_pipeline
+````
+
+---
+
+## 🐍 2. Crear y activar entorno virtual
+
+### Crear entorno virtual
+
+```bash
+python -m venv venv
+```
+
+Esto crea una carpeta `venv/` que contiene un entorno Python aislado.
+
+### Activar (en Windows)
+
+```bash
+venv\Scripts\activate
+```
+
+Si aparece `(venv)` en la terminal, está activo.
+
+### Verificar que estás usando el Python correcto
+
+```bash
+where python
+```
+
+Debe mostrar una ruta dentro de `venv\Scripts\python.exe`.
+
+---
+
+## 📦 3. Instalar herramientas de calidad de código
+
+Con el entorno activado, ejecutar:
+
+```bash
+pip install black flake8 isort
+```
+
+### ¿Qué hace cada herramienta?
+
+| Herramienta | Función                                                                  |
+| ----------- | ------------------------------------------------------------------------ |
+| `black`     | Formatea automáticamente el código (espacios, sangrías, saltos de línea) |
+| `flake8`    | Marca errores de estilo y posibles bugs                                  |
+| `isort`     | Ordena los `import` de forma correcta                                    |
+
+### Ejecutar sobre un archivo
+
+```bash
+black ejemplo.py
+flake8 ejemplo.py
+isort ejemplo.py
+```
+
+---
+
+## 📁 4. Generar `requirements.txt`
+
+```bash
+pip freeze > requirements.txt
+```
+
+Esto guarda todas las dependencias instaladas para que otro pueda replicar tu entorno con:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## 🚫 5. Crear `.gitignore`
+
+Para no subir `venv` ni archivos temporales:
+
+```
+venv/
+__pycache__/
+*.pyc
+```
+
+---
+
+## 🟦 6. Subir proyecto a GitHub
+
+### Crear repo desde GitHub (vacío)
+
+Ejemplo: [https://github.com/MLopezCastro/semana1\_pipeline](https://github.com/MLopezCastro/semana1_pipeline)
+
+### Conectar repo local con Git
+
+```bash
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin https://github.com/MLopezCastro/semana1_pipeline.git
+git push -u origin main
+```
+
+---
+
+## 💡 Notas adicionales
+
+* No se debe subir `venv` a GitHub. Siempre usar `.gitignore`.
+* El entorno virtual se activa cada vez que abrís VS Code en esta carpeta.
+* Si `flake8` marca errores, corregir antes de commitear (opcional pero recomendado).
+
+```
+
+---
+
+¿Querés que lo guarde como archivo `.md` y te lo genere para descargar?
+```
