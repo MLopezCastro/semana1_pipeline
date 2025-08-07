@@ -155,20 +155,8 @@ pip list
 
 ```
 
-semana\_1\_pipeline/
-├── data/
-│   ├── input.csv             # Archivo de entrada
-│   └── output/               # Carpeta de salida
-├── pipeline/                 # Lógica modularizada
-│   ├── **init**.py
-│   ├── load.py
-│   ├── transform.py
-│   ├── save.py
-├── utils/
-│   └── logger.py             # Logging centralizado
-├── main.py                   # Punto de entrada del pipeline
-├── requirements.txt
-└── README.md
+<img width="334" height="321" alt="image" src="https://github.com/user-attachments/assets/041e2627-c227-4c07-85b8-9b886d4be840" />
+
 
 ```
 
