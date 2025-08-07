@@ -12,6 +12,7 @@ Este archivo resume todo lo que hice hasta ahora, para repasar fácilmente los c
 ```bash
 mkdir semana1_pipeline
 cd semana1_pipeline
+
 ````
 
 ---
