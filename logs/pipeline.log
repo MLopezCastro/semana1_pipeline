@@ -1,0 +1,18 @@
+2025-08-10 19:59:36,711 | INFO | Inicio del pipeline (ventas CLI)
+2025-08-10 19:59:36,711 | INFO | Cargando datos desde: data\input\ventas.csv
+2025-08-10 19:59:36,714 | INFO | Aplicando transformaciones
+2025-08-10 19:59:36,715 | INFO | Filtrando valores positivos en columna: ventas
+2025-08-10 19:59:36,716 | INFO | Eliminando duplicados por columna: cliente
+2025-08-10 19:59:36,717 | INFO | Normalizando columna (0–100): ventas
+2025-08-10 19:59:36,718 | INFO | Creando columna en mayúsculas desde: cliente
+2025-08-10 19:59:36,718 | INFO | Guardando resultados en: data\output\ventas_clean.csv
+2025-08-10 19:59:36,722 | INFO | Pipeline finalizado con éxito
+2025-08-10 19:59:56,073 | INFO | Inicio del pipeline (ventas CLI)
+2025-08-10 19:59:56,073 | INFO | Cargando datos desde: data\input\ventas.csv
+2025-08-10 19:59:56,075 | INFO | Aplicando transformaciones
+2025-08-10 19:59:56,076 | INFO | Filtrando valores positivos en columna: ventas
+2025-08-10 19:59:56,077 | INFO | Eliminando duplicados por columna: cliente
+2025-08-10 19:59:56,077 | INFO | Normalizando columna (0–100): ventas
+2025-08-10 19:59:56,078 | INFO | Creando columna en mayúsculas desde: cliente
+2025-08-10 19:59:56,079 | INFO | Guardando resultados en: data\output\ventas_clean.csv
+2025-08-10 19:59:56,082 | INFO | Pipeline finalizado con éxito
