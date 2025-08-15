@@ -106,14 +106,14 @@ def lambda_handler(event, context):
         logger.exception("Error en Lambda")
         return {"statusCode": 500, "body": str(e)}
 
+```
 
+## Pruebas
 
+1 Subir un CSV válido al bucket de entrada dentro de la carpeta raw/.
 
+2 Revisar la ejecución en CloudWatch Logs para confirmar que no haya errores.
 
+3 Verificar que el archivo procesado se haya guardado en el bucket de salida en la carpeta definida por OUTPUT_PREFIX
 
-
-
-
-
-
-
+```
