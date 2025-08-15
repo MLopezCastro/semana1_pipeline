@@ -115,7 +115,7 @@ Si tu código usa rutas, credenciales, etc.:
 
 ✅ Con estos pasos podrás recrear cualquier Lambda que necesites en el futuro.
 
-
+---
 
 - **Runtime**: Python 3.12  
 - **Arquitectura**: x86_64  
