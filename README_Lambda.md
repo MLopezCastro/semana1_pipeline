@@ -114,3 +114,127 @@ Si tu código usa rutas, credenciales, etc.:
 ---
 
 ✅ Con estos pasos podrás recrear cualquier Lambda que necesites en el futuro.
+
+
+
+- **Runtime**: Python 3.12  
+- **Arquitectura**: x86_64  
+- **Dependencias**: numpy + pandas (wheels manylinux2014 para cp312) **incluidas dentro del ZIP**  
+- **Sin layers** (para simplificar y evitar incompatibilidades)
+
+---
+
+## 1) Crear la función Lambda
+
+1. AWS Console → **Lambda** → **Create function**
+2. **Author from scratch**
+   - **Function name**: `ventasPipelineLambda`
+   - **Runtime**: `Python 3.12`
+   - **Architecture**: `x86_64`
+   - **Permissions**: *Create a new role with basic Lambda permissions*
+3. **Create function**
+
+> 📸 _Sugerencia de captura:_ `docs/img/01-create-function.png`
+
+---
+
+## 2) Agregar permisos al **Execution role**
+
+Abrí la Lambda → **Configuration** → **Permissions** → clic en el **Role name** (te lleva a IAM).
+
+Adjuntá estas políticas (mínimo):
+
+- `AWSLambdaBasicExecutionRole` (ya suele venir; si no, adjuntala)
+- `CloudWatchLogsFullAccess` (o equivalente administrado por AWS)
+- `AmazonS3FullAccess` *(para pruebas rápidas)*. En prod usá una política mínima con `s3:GetObject` (input) + `s3:PutObject` (output).
+
+> 📸 _Sugerencia de captura:_ `docs/img/02-iam-policies.png`
+
+---
+
+## 3) Variables de entorno
+
+En la Lambda → **Configuration** → **Environment variables**:
+
+| Key            | Value                                     |
+|----------------|-------------------------------------------|
+| `INPUT_BUCKET` | `marcelo-ventas-pipeline-input`           |
+| `OUTPUT_BUCKET`| `marcelo-ventas-pipeline-output`          |
+| `OUTPUT_PREFIX`| `processed/` *(debe terminar en `/`)*     |
+
+> 📸 _Sugerencia de captura:_ `docs/img/03-env-vars.png`
+
+---
+
+## 4) Código de la Lambda (`lambda_function.py`)
+
+> **Nota**: Agregamos `/var/task/pkg` al `sys.path` porque ahí van las wheels de pandas/numpy dentro del ZIP.
+
+```python
+import os, json, logging, boto3
+from io import StringIO
+from urllib.parse import unquote_plus
+import sys
+sys.path.insert(0, "/var/task/pkg")  # donde están pandas/numpy en el ZIP
+
+import pandas as pd
+
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+s3 = boto3.client("s3")
+
+INPUT_BUCKET  = os.environ.get("INPUT_BUCKET",  "marcelo-ventas-pipeline-input")
+OUTPUT_BUCKET = os.environ.get("OUTPUT_BUCKET", "marcelo-ventas-pipeline-output")
+OUTPUT_PREFIX = os.environ.get("OUTPUT_PREFIX", "processed/")
+if not OUTPUT_PREFIX.endswith("/"):
+    OUTPUT_PREFIX += "/"
+
+def _build_output_key(input_key: str) -> str:
+    k = input_key.lstrip("/")
+    if k.startswith("raw/"):
+        return OUTPUT_PREFIX + k[len("raw/"):]
+    return OUTPUT_PREFIX + k
+
+def _clean_column_names(df: pd.DataFrame) -> pd.DataFrame:
+    df.columns = (
+        df.columns
+        .str.strip()
+        .str.lower()
+        .str.replace(" ", "_")
+        .str.replace(r"[^a-z0-9_]", "", regex=True)
+    )
+    return df
+
+def _filter_positive(df: pd.DataFrame, col: str) -> pd.DataFrame:
+    if col in df.columns:
+        return df[pd.to_numeric(df[col], errors="coerce") > 0]
+    logger.warning(f"Columna '{col}' no encontrada; no se filtra.")
+    return df
+
+def lambda_handler(event, context):
+    try:
+        logger.info("Evento: %s", json.dumps(event))
+        rec = event["Records"][0]
+        bucket = rec["s3"]["bucket"]["name"]
+        key    = unquote_plus(rec["s3"]["object"]["key"])
+
+        obj = s3.get_object(Bucket=bucket, Key=key)
+        df = pd.read_csv(obj["Body"])
+
+        df = _clean_column_names(df)
+        df = df.dropna(how="all")
+        df = _filter_positive(df, "precio_unitario")  # ajustar si aplica
+
+        out_key = _build_output_key(key)
+        buf = StringIO()
+        df.to_csv(buf, index=False)
+        s3.put_object(Bucket=OUTPUT_BUCKET, Key=out_key, Body=buf.getvalue())
+
+        msg = f"OK -> s3://{OUTPUT_BUCKET}/{out_key}"
+        logger.info(msg)
+        return {"statusCode": 200, "body": msg}
+    except Exception as e:
+        logger.exception("Error en Lambda")
+        return {"statusCode": 500, "body": str(e)}
+
+
