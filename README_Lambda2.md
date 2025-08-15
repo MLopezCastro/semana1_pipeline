@@ -35,8 +35,8 @@ Este README describe cómo crear una función Lambda en AWS que procese automát
   ]
 }
 
----
 
-Código de la Función Lambda (lambda_function.py)
+
+# Código de la Función Lambda (lambda_function.py)
 
 
