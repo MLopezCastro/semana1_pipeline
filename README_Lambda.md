@@ -319,6 +319,9 @@ Ejecutá Test.
 
 Deberías ver OK -> s3://marcelo-ventas-pipeline-output/processed/ventas.csv
 
-<img width="682" height="385" alt="image" src="https://github.com/user-attachments/assets/df258819-05ab-460e-8e84-de5ce7c14ca0" />
+---
+
+<img width="682" height="385" alt="image" src="https://github.com/user-attachments/assets/78fabe81-694f-4bf5-811c-ccc59475373d" />
+
 
 
