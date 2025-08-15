@@ -134,7 +134,7 @@ Si tu código usa rutas, credenciales, etc.:
    - **Permissions**: *Create a new role with basic Lambda permissions*
 3. **Create function**
 
-> 📸 _Sugerencia de captura:_ `docs/img/01-create-function.png`
+<img width="866" height="859" alt="image" src="https://github.com/user-attachments/assets/5dba3f90-05b1-4b94-ba75-2f121bb3e18c" />
 
 ---
 
@@ -148,7 +148,7 @@ Adjuntá estas políticas (mínimo):
 - `CloudWatchLogsFullAccess` (o equivalente administrado por AWS)
 - `AmazonS3FullAccess` *(para pruebas rápidas)*. En prod usá una política mínima con `s3:GetObject` (input) + `s3:PutObject` (output).
 
-> 📸 _Sugerencia de captura:_ `docs/img/02-iam-policies.png`
+<img width="756" height="693" alt="image" src="https://github.com/user-attachments/assets/8d5662c8-5ac0-40ca-825b-1a0f0e3a870b" />
 
 ---
 
@@ -162,7 +162,7 @@ En la Lambda → **Configuration** → **Environment variables**:
 | `OUTPUT_BUCKET`| `marcelo-ventas-pipeline-output`          |
 | `OUTPUT_PREFIX`| `processed/` *(debe terminar en `/`)*     |
 
-> 📸 _Sugerencia de captura:_ `docs/img/03-env-vars.png`
+<img width="795" height="408" alt="image" src="https://github.com/user-attachments/assets/fb2f7c38-d763-4d7c-813a-7a20a1a7e06f" />
 
 ---
 
