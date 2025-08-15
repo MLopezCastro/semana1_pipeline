@@ -38,8 +38,7 @@ Este README describe cómo crear una función Lambda en AWS que procese automát
 
 ## Script Completo (lambda_function.py):
 
-
-´´´
+```
 import os
 import json
 import logging
@@ -107,8 +106,7 @@ def lambda_handler(event, context):
         logger.exception("Error en Lambda")
         return {"statusCode": 500, "body": str(e)}
 
-
-
+´´´
 
 
 
