@@ -308,6 +308,8 @@ Cambiá los campos:
   ]
 }
 
-<img width="632" height="258" alt="image" src="https://github.com/user-attachments/assets/e15aa969-fb3d-4242-9131-fec857f62439" />
+
+<img width="478" height="231" alt="111" src="https://github.com/user-attachments/assets/f849fb38-9662-4f39-978c-d6f6e317ed00" />
+
 
 
