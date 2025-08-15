@@ -36,7 +36,7 @@ Este README describe cómo crear una función Lambda en AWS que procese automát
 }
 ```
 
-
+Script Completo (lambda_function.py)
 
 
 
