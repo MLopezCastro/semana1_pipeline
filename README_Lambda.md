@@ -237,6 +237,32 @@ def lambda_handler(event, context):
         logger.exception("Error en Lambda")
         return {"statusCode": 500, "body": str(e)}
 
+---
+
 Empaquetado correcto (💯 1 solo ZIP)
 
 Lo hicimos en AWS CloudShell (us‑east‑1) para obtener wheels manylinux2014 compatibles con Lambda cp312 sin Docker ni layers.
+
+# 1) carpeta limpia
+rm -rf build312 && mkdir -p build312/pkg && cd build312
+
+# 2) instalar dependencias correctas en pkg/ (manylinux2014 + cp312)
+python3 -m pip install \
+  --platform manylinux2014_x86_64 \
+  --implementation cp \
+  --python-version 312 \
+  --only-binary=:all: \
+  --no-deps \
+  -t pkg \
+  numpy==2.0.1 pandas==2.2.2 python-dateutil pytz tzdata
+
+# 3) crear el código (o subilo con un editor; acá lo generamos inline si querés)
+cat > lambda_function.py <<'PY'
+# (pegar aquí el contenido del lambda_function.py que está más arriba)
+PY
+
+# 4) armar el ZIP final (pkg + código)
+zip -r9 ../lambda_package_py312.zip . >/dev/null
+cd ..
+ls -lh lambda_package_py312.zip
+# salida esperada ~40 MB
