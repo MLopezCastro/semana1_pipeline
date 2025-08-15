@@ -38,6 +38,8 @@ Este README describe cómo crear una función Lambda en AWS que procese automát
 
 ## Script Completo (lambda_function.py):
 
+
+´´´
 import os
 import json
 import logging
