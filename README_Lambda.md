@@ -266,3 +266,48 @@ zip -r9 ../lambda_package_py312.zip . >/dev/null
 cd ..
 ls -lh lambda_package_py312.zip
 # salida esperada ~40 MB
+
+---
+
+6) Subir el ZIP a la función
+
+Abrí la Lambda → pestaña Code
+
+Botón Upload from → .zip file
+
+Seleccioná lambda_package_py312.zip → Save
+
+Verificá que el explorador de archivos muestre:
+
+lambda_function.py
+
+carpeta pkg/ con pandas, numpy, etc.
+
+Runtime settings
+
+Handler: lambda_function.lambda_handler
+
+Runtime: Python 3.12
+
+---
+
+7) Prueba manual (sin trigger)
+
+Test → Configure test event → plantilla S3 Put
+
+Cambiá los campos:
+
+{
+  "Records": [
+    {
+      "s3": {
+        "bucket": { "name": "marcelo-ventas-pipeline-input" },
+        "object": { "key": "raw/ventas.csv" }
+      }
+    }
+  ]
+}
+
+<img width="632" height="258" alt="image" src="https://github.com/user-attachments/assets/e15aa969-fb3d-4242-9131-fec857f62439" />
+
+
