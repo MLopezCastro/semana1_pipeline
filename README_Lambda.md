@@ -311,5 +311,14 @@ Cambiá los campos:
 
 <img width="478" height="231" alt="111" src="https://github.com/user-attachments/assets/f849fb38-9662-4f39-978c-d6f6e317ed00" />
 
+---
+
+Asegurate de tener ventas.csv en s3://marcelo-ventas-pipeline-input/raw/ventas.csv
+
+Ejecutá Test.
+
+Deberías ver OK -> s3://marcelo-ventas-pipeline-output/processed/ventas.csv
+
+<img width="682" height="385" alt="image" src="https://github.com/user-attachments/assets/df258819-05ab-460e-8e84-de5ce7c14ca0" />
 
 
