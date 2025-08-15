@@ -237,4 +237,6 @@ def lambda_handler(event, context):
         logger.exception("Error en Lambda")
         return {"statusCode": 500, "body": str(e)}
 
+Empaquetado correcto (💯 1 solo ZIP)
 
+Lo hicimos en AWS CloudShell (us‑east‑1) para obtener wheels manylinux2014 compatibles con Lambda cp312 sin Docker ni layers.
