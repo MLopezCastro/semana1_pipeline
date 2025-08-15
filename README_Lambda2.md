@@ -106,7 +106,8 @@ def lambda_handler(event, context):
         logger.exception("Error en Lambda")
         return {"statusCode": 500, "body": str(e)}
 
-´´´
+
+
 
 
 
