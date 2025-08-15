@@ -321,7 +321,7 @@ Deberías ver OK -> s3://marcelo-ventas-pipeline-output/processed/ventas.csv
 
 ---
 
-<img width="1358" height="477" alt="Captura de pantalla 2025-08-15 134822" src="https://github.com/user-attachments/assets/68af4cdd-f5d9-4d87-a86f-7fab96dd20cd" />
+
 
 
 
